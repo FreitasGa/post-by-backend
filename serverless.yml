@@ -15,18 +15,29 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: sa-east-1
-  # To load environment variables externally
-  # rename env.example to .env and uncomment
-  # the following line. Also, make sure to not
-  # commit your .env.
-  #
-  #environment:
-  #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+  environment:
+    itemTableName: Item
+    reserveTableName: Reserve
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: "arn:aws:dynamodb:sa-east-1:*:*"
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: hello
-          method: get
+  - ${file(sls/functions/item/get-item.yml)}
+  - ${file(sls/functions/item/list-item.yml)}
+  - ${file(sls/functions/email/send-email.yml)}
+  - ${file(sls/functions/reserve/create-reserve.yml)}
+  - ${file(sls/functions/reserve/get-reserve.yml)}
+  - ${file(sls/functions/reserve/list-reserve.yml)}
+  - ${file(sls/functions/reserve/delete-reserve.yml)}
+
+resources:
+  - ${file(sls/resources/api-gateway-errors.yml)}

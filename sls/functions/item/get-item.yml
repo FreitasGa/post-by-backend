@@ -1,0 +1,7 @@
+get-item:
+  handler: src/functions/item/get-item.main
+  events:
+    - http:
+        method: get
+        path: item/{id}
+        cors: true

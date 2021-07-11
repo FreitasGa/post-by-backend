@@ -1,0 +1,8 @@
+create-reserve:
+  handler: src/functions/reserve/create-reserve.main
+  events:
+    - http:
+        method: post
+        path: reserve
+        # authorizer: aws_iam
+        cors: true

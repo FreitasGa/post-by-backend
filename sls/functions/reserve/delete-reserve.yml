@@ -1,0 +1,8 @@
+delete-reserve:
+  handler: src/functions/reserve/delete-reserve.main
+  events:
+    - http:
+        method: delete
+        path: reserve/{id}
+        # authorizer: aws_iam
+        cors: true

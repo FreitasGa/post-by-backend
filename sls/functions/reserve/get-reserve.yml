@@ -1,0 +1,8 @@
+get-reserve:
+  handler: src/functions/reserve/get-reserve.main
+  events:
+    - http:
+        method: get
+        path: reserve/{id}
+        # authorizer: aws_iam
+        cors: true

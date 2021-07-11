@@ -1,0 +1,7 @@
+list-item:
+  handler: src/functions/item/list-item.main
+  events:
+    - http:
+        method: get
+        path: item
+        cors: true

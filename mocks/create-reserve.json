@@ -1,0 +1,21 @@
+{
+    "body": {
+        "items": [
+            {
+                "itemId": "0002",
+                "quantity": 1
+            },
+            {
+                "itemId": "0004",
+                "quantity": 2
+            }
+        ],
+        "totalPrice": 10.5,
+        "totalQuantity": 3
+    },
+    "requestContext": {
+        "identity": {
+            "cognitoIdentityId": "USER-SUB-1234"
+        }
+    }
+}
