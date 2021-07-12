@@ -4,5 +4,5 @@ send-email:
     - http:
         method: post
         path: email
-        # authorizer: aws_iam
+        authorizer: aws_iam
         cors: true

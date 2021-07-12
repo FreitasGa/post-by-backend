@@ -4,5 +4,5 @@ get-reserve:
     - http:
         method: get
         path: reserve/{id}
-        # authorizer: aws_iam
+        authorizer: aws_iam
         cors: true

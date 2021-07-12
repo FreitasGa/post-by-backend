@@ -4,5 +4,5 @@ delete-reserve:
     - http:
         method: delete
         path: reserve/{id}
-        # authorizer: aws_iam
+        authorizer: aws_iam
         cors: true

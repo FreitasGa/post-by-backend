@@ -4,5 +4,5 @@ create-reserve:
     - http:
         method: post
         path: reserve
-        # authorizer: aws_iam
+        authorizer: aws_iam
         cors: true
