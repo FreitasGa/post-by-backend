@@ -3,7 +3,7 @@ import handler from '../../../libs/handler-lib';
 import dynamoDb from '../../../libs/dynamodb-lib';
 
 export const main = handler(async (event, context) => {
-    const { items, totalPrice, totalQuantity } =
+    const { userEmail, items, totalPrice, totalQuantity } =
         typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
 
     const params = {
@@ -11,7 +11,7 @@ export const main = handler(async (event, context) => {
         Item: {
             reserveId: v4(),
             userId: event.requestContext.identity.cognitoIdentityId,
-            userEmail: 'usuario@email.com',
+            userEmail,
             items,
             totalPrice,
             totalQuantity,

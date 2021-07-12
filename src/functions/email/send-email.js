@@ -2,7 +2,7 @@ import handler from '../../../libs/handler-lib';
 import nodemailer from 'nodemailer';
 
 export const main = handler(async (event, context) => {
-    const { user_email } =
+    const { userEmail } =
         typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
 
     const transporter = nodemailer.createTransport({
@@ -24,7 +24,7 @@ export const main = handler(async (event, context) => {
 
     const emailSent = await transporter.sendMail({
         from: 'Post-by <postby.lawgile@gmail.com>',
-        to: user_email,
+        to: userEmail,
         subject: 'Nova reserva!',
         text: 'Nova reserva realizada',
         html: htmlToSend,
