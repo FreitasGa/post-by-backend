@@ -2,7 +2,7 @@ import handler from '../../../libs/handler-lib';
 import nodemailer from 'nodemailer';
 
 export const main = handler(async (event, context) => {
-  const { userEmail } =
+  const { userEmail, userName } =
     typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
 
   const transporter = nodemailer.createTransport({
@@ -16,12 +16,13 @@ export const main = handler(async (event, context) => {
     },
   });
 
+  const date = new Date();
   const htmlToSend = `
         <center>
-            <h2>Nova reserva feita</h2>
-            <p style="margin:0" >Opa, tudo bem?</p>
-            <p style="margin:0" >Vim aqui confirmar que sua reserva foi feita!</p>
-            <img style="margin:20px 12px" width="248" src="https://i.giphy.com/media/tIeCLkB8geYtW/giphy.gif">
+            <img style="margin:20px 0 0 0" width="180px" src="https://post-by-uploads.s3.sa-east-1.amazonaws.com/logo/logo3x.png">
+            <h2 style="color:black">Olá ${userName}, tudo bem? </h2>
+            <p style="margin:0;color:black;font-size:1.2em" >Vim aqui confirmar que sua reserva foi feita!</p>
+            <p style="color:black" >${date.getDay()}/${date.getMonth() + 1} - ${date.getHours()}:${date.getMinutes()}</p>
         </center>
     `;
 
