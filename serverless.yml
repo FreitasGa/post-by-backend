@@ -33,10 +33,8 @@ provider:
 functions:
   - ${file(sls/functions/item/get-item.yml)}
   - ${file(sls/functions/item/list-item.yml)}
-  - ${file(sls/functions/item/update-item.yml)}
   - ${file(sls/functions/email/send-email.yml)}
   - ${file(sls/functions/reserve/create-reserve.yml)}
-  - ${file(sls/functions/reserve/get-reserve.yml)}
   - ${file(sls/functions/reserve/list-reserve.yml)}
   - ${file(sls/functions/reserve/delete-reserve.yml)}
 

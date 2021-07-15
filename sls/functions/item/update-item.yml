@@ -1,8 +1,0 @@
-update-item:
-  handler: src/functions/item/update-item.main
-  events:
-    - http:
-        method: put
-        path: item
-        authorizer: aws_iam
-        cors: true
